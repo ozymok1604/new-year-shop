@@ -1,0 +1,88 @@
+.price {
+  color: #1f6d3d;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.oldPrice {
+  font-size: 16px;
+  text-decoration: line-through;
+  color: #c62828;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* кнопка */
+.buyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 24px;
+  min-width: 120px;
+
+  border: 1px solid #16502c;
+  background: #1f6d3d;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 20px;
+  font-weight: 700;
+  height: 44px;
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+.buyButton:hover {
+  background: #16502c;
+}
+.buyButton:active {
+  transform: translateY(1px);
+}
+
+/* Характеристики */
+.specs {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* дві колонки */
+  gap: 10px 16px;
+}
+
+.specItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.specLabel {
+  color: #555a65;
+  font-size: 14px;
+}
+
+.specValue {
+  color: #111827;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* мобілка — в одну колонку */
+@media (max-width: 480px) {
+  .specs {
+    grid-template-columns: 1fr;
+  }
+  .specItem {
+    justify-content: space-between;
+  }
+}

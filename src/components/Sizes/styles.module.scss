@@ -1,0 +1,29 @@
+.sizesRow {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.size {
+  border: 1px solid #1f6d3d;
+  color: #1f6d3d;
+  border-radius: 12px;
+  text-align: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 60px;
+  min-width: 60px;
+  background-color: white;
+
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.selectedSize {
+  @extend .size;
+  color: white;
+  background-color: #1f6d3d;
+}

@@ -1,5 +1,6 @@
 export const trees = [
   {
+    id: 'kovalivska-green',
     name: 'Ялинка лита "Ковалівська" (зелена)',
     nameEn: 'Christmas tree "Kovalivka" (green)',
     prices: [
@@ -78,6 +79,7 @@ export const trees = [
     ],
   },
   {
+    id: 'kovalivska-blue',
     name: 'Ялинка лита "Ковалівська" (блакитна)',
     nameEn: 'Christmas tree "Kovalivka" (blue)',
     prices: [
@@ -157,6 +159,7 @@ export const trees = [
   },
 
   {
+    id: 'videnska-green',
     name: 'Ялинка лита "Віденська" (зелена)',
     nameEn: 'Christmas tree "Vienna" (green)',
     prices: [
@@ -235,6 +238,7 @@ export const trees = [
     ],
   },
   {
+    id: 'videnska-blue',
     name: 'Ялинка лита "Віденська" (блакитна)',
     nameEn: 'Christmas tree "Vienna" (blue)',
     prices: [
@@ -314,6 +318,7 @@ export const trees = [
   },
 
   {
+    id: 'laplandska-green',
     name: 'Ялинка лита "Лапландська" (зелена)',
     nameEn: 'Christmas tree "Lapland" (green)',
     prices: [
@@ -392,6 +397,7 @@ export const trees = [
     ],
   },
   {
+    id: 'laplandska-blue',
     name: 'Ялинка лита "Лапландська" (блакитна)',
     nameEn: 'Christmas tree "Lapland" (blue)',
     prices: [
@@ -470,6 +476,7 @@ export const trees = [
     ],
   },
   {
+    id: 'alpiiska-green',
     name: 'Ялинка лита "Альпійська" (зелена)',
     nameEn: 'Christmas tree "Alpine" (green)',
     prices: [
@@ -549,6 +556,7 @@ export const trees = [
   },
 
   {
+    id: 'kovalivska-flocked',
     name: 'Ялинка лита "Ковалівська" (ЗАСНІЖЕНА)',
     nameEn: 'Christmas tree "Kovalivka" Flocked',
     prices: [
@@ -628,6 +636,7 @@ export const trees = [
   },
 
   {
+    id: 'videnska-flocked',
     name: 'Ялинка лита "Віденська" (ЗАСНІЖЕНА)',
     nameEn: 'Christmas tree "Vienna" Flocked',
     prices: [
@@ -707,6 +716,7 @@ export const trees = [
   },
 
   {
+    id: 'laplandska-flocked',
     name: 'Ялинка лита "Лапландська" (ЗАСНІЖЕНА)',
     nameEn: 'Christmas tree "Lapland" Flocked',
     prices: [

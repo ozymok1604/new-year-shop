@@ -5,7 +5,7 @@ const ProductsList = () => {
   return (
     <div className={styles.list}>
       {trees.map((data) => (
-        <ProductsListItem data={data} />
+        <ProductsListItem key={data.id} data={data} />
       ))}
     </div>
   );

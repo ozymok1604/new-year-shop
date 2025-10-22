@@ -1,5 +1,98 @@
+:root {
+  --bg-snow: #fff5f5; // теплий «сніговий» фон під список
+  --card-bg: #ffffff; // картки
+  --card-border: #e6e6e6; // тонка рамка
+  --text: #111827; // основний текст
+  --text-muted: #6b7280; // підписи
+  --accent-red: #c62828; // акцент (в тон банера)
+  --accent-red-d: #8e1b1b; // ховер/натиск
+  --pine: #1f6d3d; // ялинковий зелений (бейджі/іконки)
+  --gold: #d6a019; // дрібні акценти (ціна/зірочки)
+  --green: #4fab24;
+}
 .list {
+  background: var(--bg-snow);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки навіть на мобайлі */
+  gap: 10px;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.product {
+  /* width: 40vw; — видали, щоб грід не ламався */
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  gap: 10px;
+  margin-top: 8px;
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(198, 40, 40, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s;
+}
+
+.productName {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+}
+
+.imageWrap {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.imageWrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* бейдж/ціна — опціонально */
+.badge {
+  background: var(--accent-red);
+  color: #fff;
+  border: 1px solid var(--accent-red-d);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 600;
+}
+.muted {
+  color: var(--text-muted);
+}
+.icon {
+  color: var(--pine);
+}
+.price {
+  color: var(--green);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: rgb(199, 5, 5);
+}
+
+.bottomBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.buyButton {
+  min-width: 80px;
+  border: none;
+  background-color: var(--accent-red-d);
+  color: white;
+  border-radius: 6px;
+  font-size: 16px;
+  height: 45px;
 }

@@ -1,0 +1,83 @@
+/* зелена палітра сайту */
+:root {
+  --pine: #1f6d3d;
+  --pine-600: #16502c;
+  --mint-bg: #f6fbf8; /* дуже світлий зелений фон */
+  --mint-brd: #e3f0ea; /* тонка межа */
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+.wrap {
+  background: var(--mint-bg);
+  border: 1px solid var(--mint-brd);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 24px;
+}
+
+/* одна колонка на мобайлі, дві на планшеті */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 720px) {
+  .list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--mint-brd);
+}
+.item:first-child {
+  border-top: none;
+}
+
+.icon {
+  color: var(--pine);
+  background: rgba(31, 109, 61, 0.08);
+  border: 1px solid rgba(31, 109, 61, 0.18);
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.text {
+  flex: 1;
+}
+.title {
+  color: var(--text);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+.line {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+/* утиліта для скрінрідерів */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
