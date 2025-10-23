@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
+    "emailjs-com": "^3.2.0",
     "lottie-react": "^2.4.1",
     "next": "15.5.5",
     "react": "19.1.0",

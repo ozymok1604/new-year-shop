@@ -21,12 +21,11 @@ export default function ProductPage() {
 
   return (
     <>
-      <SnowAnimation />
       <Header />
       <div className={styles.page}>
         <Gallery id={productData.id} size={size} />
         <Sizes sizes={sizes} setSize={setSize} size={size} />
-        <ProductDetails data={productDetails} size={size} />
+        <ProductDetails data={{ ...productDetails, name: productData.name }} size={size} />
       </div>
       <Footer />
     </>

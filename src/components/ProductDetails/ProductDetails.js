@@ -1,30 +1,49 @@
 'use client';
+import { useState } from 'react';
 import { ShoppingCartIcon } from '@phosphor-icons/react';
 import styles from './styles.module.scss';
 import TrustBlocks from '../TrustBlocks/TrustBlocks';
-import NovaPostDivisionPicker from '../NovaPostDivisionPicker/NovaPostDivisionPicker';
-import NovaPostSearch from '../NovaPostDivisionPicker/NovaPostDivisionPicker';
+import DeliveryBottomSheet from '../NovaPostDivisionPicker/DeliveryBottomSheet';
 
 const ProductDetails = ({ data, size }) => {
-  // data: { size, price, bottomDiameter, numberOfTwigs, weightKg, packageSizes:{length,width,height} }
+  const [orderInfo, setOrderInfo] = useState(null);
+  console.log(data, 'data');
 
   const priceNow = (data.price ?? 0) + 1200;
   const priceOld = (data.price ?? 0) + 1630;
 
+  const handleSubmit = (order) => {
+    console.log('✅ Замовлення:', {
+      ...order,
+      product: {
+        name: `Ялинка ${size} м`,
+        price: priceNow,
+      },
+    });
+
+    setOrderInfo(order);
+  };
+
   return (
     <div>
-      <NovaPostSearch />
+      <h2 className={styles.name}>{data.name}</h2>
       <div className={styles.row}>
         <div>
           <h3 className={styles.price}>{priceNow.toLocaleString('uk-UA')} грн</h3>
           <h3 className={styles.oldPrice}>{priceOld.toLocaleString('uk-UA')} грн</h3>
         </div>
 
-        <button className={styles.buyButton} type="button">
-          <ShoppingCartIcon size={22} weight="bold" />
-          <span>Замовити</span>
-        </button>
+        {/* ✅ Кнопка відкриває bottom sheet */}
+        <DeliveryBottomSheet
+          product={{
+            name: `${data.name + ' ' + size} м`,
+            price: priceNow,
+            size: data.size,
+          }}
+          onSubmit={handleSubmit}
+        />
       </div>
+
       {/* Характеристики */}
       <div className={styles.specs}>
         <div className={styles.specItem}>
@@ -56,6 +75,7 @@ const ProductDetails = ({ data, size }) => {
           </span>
         </div>
       </div>
+
       <div className={styles.description}>
         Наші ялинки збираються за кілька хвилин із <b>3 частин</b>, тож святковий настрій не змусить
         себе чекати. <b>Металева підставка</b> гарантує надійну стійкість, а гілля зі{' '}
@@ -63,6 +83,7 @@ const ProductDetails = ({ data, size }) => {
         дерево легко сховати в <b>картонну коробку</b> — компактно, акуратно, без сміття та щорічних
         витрат.
       </div>
+
       <TrustBlocks />
     </div>
   );
