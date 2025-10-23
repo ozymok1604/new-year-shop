@@ -2,6 +2,8 @@
 import { ShoppingCartIcon } from '@phosphor-icons/react';
 import styles from './styles.module.scss';
 import TrustBlocks from '../TrustBlocks/TrustBlocks';
+import NovaPostDivisionPicker from '../NovaPostDivisionPicker/NovaPostDivisionPicker';
+import NovaPostSearch from '../NovaPostDivisionPicker/NovaPostDivisionPicker';
 
 const ProductDetails = ({ data, size }) => {
   // data: { size, price, bottomDiameter, numberOfTwigs, weightKg, packageSizes:{length,width,height} }
@@ -11,6 +13,7 @@ const ProductDetails = ({ data, size }) => {
 
   return (
     <div>
+      <NovaPostSearch />
       <div className={styles.row}>
         <div>
           <h3 className={styles.price}>{priceNow.toLocaleString('uk-UA')} грн</h3>
@@ -52,6 +55,13 @@ const ProductDetails = ({ data, size }) => {
             {data.packageSizes?.length} × {data.packageSizes?.width} × {data.packageSizes?.height} м
           </span>
         </div>
+      </div>
+      <div className={styles.description}>
+        Наші ялинки збираються за кілька хвилин із <b>3 частин</b>, тож святковий настрій не змусить
+        себе чекати. <b>Металева підставка</b> гарантує надійну стійкість, а гілля зі{' '}
+        <b>сталі, ПЕ та ПВХ-плівки</b> виглядає максимально природно й служить роками. Після свят
+        дерево легко сховати в <b>картонну коробку</b> — компактно, акуратно, без сміття та щорічних
+        витрат.
       </div>
       <TrustBlocks />
     </div>

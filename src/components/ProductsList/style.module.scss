@@ -11,7 +11,7 @@
   --green: #4fab24;
 }
 .list {
-  background: var(--bg-snow);
+  background: #f6fbf8;
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 колонки навіть на мобайлі */
   gap: 10px;
@@ -70,7 +70,7 @@
   color: var(--pine);
 }
 .price {
-  color: var(--green);
+  color: #1f6d3d;
   font-weight: 700;
   font-size: 16px;
 }
@@ -90,7 +90,7 @@
 .buyButton {
   min-width: 80px;
   border: none;
-  background-color: var(--accent-red-d);
+  background-color: #1f6d3d;
   color: white;
   border-radius: 6px;
   font-size: 16px;

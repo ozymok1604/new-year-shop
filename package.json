@@ -16,6 +16,9 @@
     "sass": "^1.93.2"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^10.1.8"
+    "@types/node": "24.9.1",
+    "@types/react": "19.2.2",
+    "eslint-config-prettier": "^10.1.8",
+    "typescript": "5.9.3"
   }
 }

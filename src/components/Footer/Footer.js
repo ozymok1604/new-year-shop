@@ -18,9 +18,9 @@ export default function Footer() {
         {/* Контакти */}
         <div className={styles.col}>
           <div className={styles.blockTitle}>Контакти</div>
-          <a className={styles.link} href="tel:+380671234567">
+          <a className={styles.link} href="tel:+380967070209">
             <Phone size={18} weight="bold" />
-            <span>+38 (067) 123-45-67</span>
+            <span>+38 (096) 707-02-09</span>
           </a>
 
           <Link

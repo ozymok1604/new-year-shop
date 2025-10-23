@@ -8,6 +8,7 @@ import styles from './styles.module.scss';
 import { Header } from '@/components/Header/Header';
 import { ProductDetails } from '@/components/ProductDetails/ProductDetails';
 import Footer from '@/components/Footer/Footer';
+import { SnowAnimation } from '@/components/SnowAnimation/SnowAnimation';
 
 export default function ProductPage() {
   const sp = useSearchParams();
@@ -20,6 +21,7 @@ export default function ProductPage() {
 
   return (
     <>
+      <SnowAnimation />
       <Header />
       <div className={styles.page}>
         <Gallery id={productData.id} size={size} />
