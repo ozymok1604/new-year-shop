@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-export const useIsMobile = (breakpoint = 768) => {
-  const [isMobile, setIsMobile] = useState(false);
+export const useIsWeb = (breakpoint = 768) => {
+  const [isWeb, setIsWeb] = useState(false);
 
   useEffect(() => {
     const checkScreen = () => {
-      setIsMobile(window.innerWidth <= breakpoint);
+      setIsWeb(window.innerWidth > breakpoint);
     };
 
     checkScreen(); // одразу при монтуванні
@@ -14,5 +14,5 @@ export const useIsMobile = (breakpoint = 768) => {
     return () => window.removeEventListener('resize', checkScreen);
   }, [breakpoint]);
 
-  return isMobile;
+  return isWeb;
 };

@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import styles from './styles.module.scss';
-import { useIsMobile } from '@/hooks/useIsMobile';
+
+import { useIsWeb } from '@/hooks/useIsWeb';
 const Baner = () => {
-  const isMobile = useIsMobile();
+  const isWeb = useIsWeb();
   return (
     <div>
-      <img className={styles.baner} src={isMobile ? '/baner_mobile.jpg' : '/baner.jpg'} />
+      <img className={styles.baner} src={isWeb ? '/baner.jpg' : '/baner_mobile.jpg'} />
     </div>
   );
 };

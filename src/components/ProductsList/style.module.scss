@@ -36,8 +36,8 @@
 
 .productName {
   color: var(--text);
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 10px;
   text-align: center;
 }
 
@@ -72,19 +72,23 @@
 .price {
   color: #1f6d3d;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 13px;
+  width: 70%;
 }
 
 .oldPrice {
+  font-size: 11px;
   text-decoration: line-through;
   color: rgb(199, 5, 5);
+  width: 50%;
 }
 
 .bottomBox {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
+  padding: 8px;
+  padding-top: 0px;
 }
 
 .buyButton {
@@ -94,5 +98,9 @@
   color: white;
   border-radius: 6px;
   font-size: 16px;
-  height: 45px;
+  height: 35px;
+}
+
+.row {
+  padding-bottom: 6px;
 }

@@ -13,12 +13,12 @@ const ProductsListItem = ({ data }) => {
           <h4 className={styles.productName}>{data.name.slice(11)}</h4>
         </div>
         <div className={styles.bottomBox}>
-          <div>
+          <div className={styles.row}>
             <p className={styles.price}>Від {price + 1200} грн</p>
             <p className={styles.oldPrice}>{price + 1630} грн</p>
           </div>
 
-          <button className={styles.buyButton}>Замовити</button>
+          <button className={styles.buyButton}>Купити</button>
         </div>
       </div>
     </Link>

@@ -5,6 +5,7 @@ import { SnowAnimation } from '@/components/SnowAnimation/SnowAnimation';
 import styles from './page.module.scss';
 import { ProductsList } from '@/components/ProductsList/ProductsList';
 import { useRef } from 'react';
+import Footer from '@/components/Footer/Footer';
 export default function Home() {
   const ref = useRef(null);
   const scrollToSection = () => {
@@ -16,6 +17,7 @@ export default function Home() {
       <Header scrollDown scrollToSection={scrollToSection} />
       <Baner />
       <ProductsList ref={ref} />
+      <Footer />
     </div>
   );
 }
