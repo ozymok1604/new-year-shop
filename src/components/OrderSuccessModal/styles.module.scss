@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .modalOverlay {
   position: fixed;
   inset: 0;
@@ -40,7 +42,7 @@
   font-size: 15px;
   transition: 0.2s;
   &:hover {
-    background: darken(#1f5c2e, 10%);
+    background: #083d16;
   }
 }
 

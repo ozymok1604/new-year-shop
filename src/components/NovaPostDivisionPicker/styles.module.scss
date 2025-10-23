@@ -1,3 +1,4 @@
+@use 'sass:color';
 /* Загальні зелені тони */
 $green-dark: #1f5c2e;
 $green-light: #cdeecd;
@@ -23,7 +24,7 @@ $green-bg: #f8fff8;
   border-radius: 8px;
   margin-bottom: 10px;
   &:focus {
-    border-color: $green-dark;
+    border-color: #083d16;
   }
 }
 
@@ -64,7 +65,7 @@ $green-bg: #f8fff8;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background: darken($green-dark, 10%);
+    background: #083d16;
   }
 }
 
@@ -141,7 +142,7 @@ $green-bg: #f8fff8;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background: darken($green-dark, 10%);
+    background: #083d16;
   }
 }
 
