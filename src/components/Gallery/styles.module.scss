@@ -9,23 +9,24 @@
 .imageWrap {
   width: 100%;
   max-width: 600px;
+  height: 600px; /* або 300px, якщо хочеш нижчу */
+  position: relative; /* обов’язково для Image fill */
   overflow: hidden;
   border-radius: 14px;
-  position: relative;
   background: #f7fff7;
   box-shadow: 0 0 12px rgba(0, 50, 0, 0.05);
-  transition: all 0.3s ease;
 }
 
 .image {
-  width: 100%;
-  height: auto;
   object-fit: cover;
   user-select: none;
   touch-action: pan-y;
   border-radius: 14px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  height: 597px;
+}
+
+.thumbImg {
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 /* ✨ Анімації */
@@ -103,8 +104,8 @@
 }
 
 .smallImage {
-  width: 80px;
-  height: 80px;
+  width: 84px;
+  height: 84px;
   object-fit: cover;
   opacity: 0.6;
   cursor: pointer;
@@ -120,11 +121,11 @@
 }
 
 .selectedSmallImage {
-  width: 80px;
-  height: 80px;
+  width: 84px;
+  height: 84px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 14px;
   border: 2px solid #1f5c2e;
   opacity: 1;
   box-shadow: 0 0 10px rgba(31, 92, 46, 0.25);

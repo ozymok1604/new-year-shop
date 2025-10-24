@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useMemo, useState, useRef } from 'react';
+
 import styles from './styles.module.scss';
+import Image from 'next/image';
 
 const Gallery = ({ id, size }) => {
   const images = useMemo(
@@ -30,12 +32,7 @@ const Gallery = ({ id, size }) => {
     const endX = e.changedTouches[0].clientX;
     const diff = startX.current - endX;
     if (Math.abs(diff) < 50 || animating) return;
-
-    if (diff > 0) {
-      handleChange('next');
-    } else {
-      handleChange('prev');
-    }
+    handleChange(diff > 0 ? 'next' : 'prev');
   };
 
   const handleChange = (dir) => {
@@ -56,25 +53,35 @@ const Gallery = ({ id, size }) => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <img
+        <Image
           key={images[selectedIndex]}
+          src={images[selectedIndex]}
+          alt="tree"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 600px"
           className={`${styles.image} ${
             direction === 'next' ? styles.slideLeft : styles.slideRight
           }`}
-          src={images[selectedIndex]}
-          alt="tree"
         />
       </div>
 
       <div className={styles.imagesRow}>
         {images.map((img, index) => (
-          <img
+          <div
             key={img}
-            onClick={() => !animating && setSelectedIndex(index)}
-            src={img}
-            alt="thumbnail"
             className={selectedIndex === index ? styles.selectedSmallImage : styles.smallImage}
-          />
+            onClick={() => !animating && setSelectedIndex(index)}
+          >
+            <Image
+              src={img}
+              alt="thumbnail"
+              width={80}
+              height={80}
+              loading="lazy"
+              className={styles.thumbImg}
+            />
+          </div>
         ))}
       </div>
     </div>

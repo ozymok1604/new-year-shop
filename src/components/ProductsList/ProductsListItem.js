@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './style.module.scss';
+import Image from 'next/image';
 const ProductsListItem = ({ data }) => {
   const mainImgUrl = `/images/${data.id}/2.3.jpg`;
   const price = data.prices.find((it) => it.size == 1.5).price;
@@ -7,7 +8,7 @@ const ProductsListItem = ({ data }) => {
     <Link href={`/product?id=${data.id}`}>
       <div className={styles.product}>
         <div className={styles.imageWrap}>
-          <img className={styles.image} src={mainImgUrl} />
+          <Image src={mainImgUrl} alt="Product image" fill priority className={styles.image} />
         </div>
         <div>
           <h4 className={styles.productName}>{data.name.slice(11)}</h4>
