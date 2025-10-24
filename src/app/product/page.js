@@ -1,15 +1,27 @@
-'use client';
-import { Gallery } from '@/components/Gallery/Gallery';
-import { Sizes } from '@/components/Sizes/Sizes';
-import { trees } from '@/data/trees';
-import { useSearchParams } from 'next/navigation';
-import { Suspense, useState } from 'react';
-import styles from './styles.module.scss';
-import { Header } from '@/components/Header/Header';
-import { ProductDetails } from '@/components/ProductDetails/ProductDetails';
-import Footer from '@/components/Footer/Footer';
-import { SnowAnimation } from '@/components/SnowAnimation/SnowAnimation';
+import { Suspense } from 'react';
 import ProductContent from '@/components/ProductContent/ProductContent';
+
+export const metadata = {
+  title: 'Новий рік — Купити ялинку онлайн | New Year Shop',
+  description:
+    'Обери живу або штучну ялинку з доставкою по Україні. Найкраща якість і святковий настрій!',
+  keywords: ['ялинка', 'новий рік', 'декор', 'купити ялинку', 'штучна ялинка'],
+  openGraph: {
+    title: 'New Year Shop 🎄',
+    description: 'Обери ідеальну ялинку для свята!',
+    url: 'https://new-year-shop.vercel.app/',
+    siteName: 'New Year Shop',
+    images: [
+      {
+        url: '/baner.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'uk_UA',
+    type: 'website',
+  },
+};
 
 export default function ProductPage() {
   return (
