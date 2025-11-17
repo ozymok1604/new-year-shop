@@ -9,8 +9,8 @@ const ProductDetails = ({ data, size }) => {
   const [orderInfo, setOrderInfo] = useState(null);
   console.log(data, 'data');
 
-  const priceNow = (data.price ?? 0) + 1200;
-  const priceOld = (data.price ?? 0) + 1630;
+  const priceNow = (data.price ?? 0) + 1700;
+  const priceOld = (data.price ?? 0) + 1930;
 
   const handleSubmit = (order) => {
     console.log('✅ Замовлення:', {

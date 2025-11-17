@@ -20,6 +20,7 @@
 }
 
 .product {
+  cursor: pointer;
   /* width: 40vw; — видали, щоб грід не ламався */
   display: flex;
   flex-direction: column;
