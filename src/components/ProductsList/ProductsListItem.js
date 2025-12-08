@@ -15,7 +15,7 @@ const ProductsListItem = ({ data }) => {
         </div>
         <div className={styles.bottomBox}>
           <div className={styles.row}>
-            <p className={styles.price}>Від {price + 1000} грн</p>
+            <p className={styles.price}>Від {price + 1200} грн</p>
             <p className={styles.oldPrice}>{price + 1930} грн</p>
           </div>
 
