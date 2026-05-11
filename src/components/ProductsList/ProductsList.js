@@ -1,10 +1,10 @@
-import { trees } from '@/data/trees';
+import { products } from '@/data/products';
 import styles from './style.module.scss';
 import { ProductsListItem } from './ProductsListItem';
-const ProductsList = ({ ref }) => {
+const ProductsList = () => {
   return (
-    <div className={styles.list} ref={ref}>
-      {trees.map((data) => (
+    <div className={styles.list}>
+      {products.map((data) => (
         <ProductsListItem key={data.id} data={data} />
       ))}
     </div>

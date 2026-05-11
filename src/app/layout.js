@@ -1,27 +1,22 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const manrope = Manrope({
+  subsets: ['cyrillic', 'latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
 });
 
 export const metadata = {
-  title: 'Новий рік — Купити ялинку онлайн | New Year Shop',
-  description:
-    'Обери живу або штучну ялинку з доставкою по Україні. Найкраща якість і святковий настрій!',
-  keywords: ['ялинка', 'новий рік', 'декор', 'купити ялинку', 'штучна ялинка'],
+  title: 'Тактичне взуття | tactic',
+  description: 'Тактичні кросівки з доставкою по Україні.',
+  keywords: ['тактичні кросівки', 'tactic', 'взуття', 'кросівки'],
   openGraph: {
-    title: 'New Year Shop 🎄',
-    description: 'Обери ідеальну ялинку для свята!',
-    url: 'https://new-year-shop.vercel.app/',
-    siteName: 'New Year Shop',
+    title: 'tactic',
+    description: 'Тактичні кросівки з доставкою по Україні.',
+    url: 'https://tactic.vercel.app/',
+    siteName: 'tactic',
     images: [
       {
         url: '/baner.jpg',
@@ -36,15 +31,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="uk">
+      <body className={manrope.className}>
         {children}
 
         {/* ✅ TikTok Pixel через Next.js Script */}

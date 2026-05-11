@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://new-year-shop.vercel.app
+Host: https://tactic.vercel.app
 
 # Sitemaps
-Sitemap: https://new-year-shop.vercel.app/sitemap.xml
+Sitemap: https://tactic.vercel.app/sitemap.xml

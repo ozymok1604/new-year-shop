@@ -4,16 +4,8 @@ import { useEffect, useMemo, useState, useRef } from 'react';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 
-const Gallery = ({ id, size }) => {
-  const images = useMemo(
-    () => [
-      `/images/${id}/${size}.jpg`,
-      `/images/${id}/top.jpg`,
-      `/images/${id}/branch.jpg`,
-      `/stand.webp`,
-    ],
-    [id, size]
-  );
+const Gallery = ({ images, alt = 'Кросівки' }) => {
+  const list = useMemo(() => (Array.isArray(images) && images.length > 0 ? images : []), [images]);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -22,7 +14,7 @@ const Gallery = ({ id, size }) => {
 
   useEffect(() => {
     setSelectedIndex(0);
-  }, [id, size]);
+  }, [list]);
 
   const handleTouchStart = (e) => {
     startX.current = e.touches[0].clientX;
@@ -31,20 +23,25 @@ const Gallery = ({ id, size }) => {
   const handleTouchEnd = (e) => {
     const endX = e.changedTouches[0].clientX;
     const diff = startX.current - endX;
-    if (Math.abs(diff) < 50 || animating) return;
+    if (Math.abs(diff) < 50 || animating || list.length === 0) return;
     handleChange(diff > 0 ? 'next' : 'prev');
   };
 
   const handleChange = (dir) => {
+    if (list.length === 0) return;
     setDirection(dir);
     setAnimating(true);
     setTimeout(() => {
       setSelectedIndex((prev) =>
-        dir === 'next' ? (prev + 1) % images.length : (prev - 1 + images.length) % images.length
+        dir === 'next' ? (prev + 1) % list.length : (prev - 1 + list.length) % list.length
       );
       setAnimating(false);
     }, 250);
   };
+
+  if (list.length === 0) {
+    return null;
+  }
 
   return (
     <div className={styles.gallery}>
@@ -54,12 +51,13 @@ const Gallery = ({ id, size }) => {
         onTouchEnd={handleTouchEnd}
       >
         <Image
-          key={images[selectedIndex]}
-          src={images[selectedIndex]}
-          alt="tree"
+          key={list[selectedIndex]}
+          src={list[selectedIndex]}
+          alt={alt}
           fill
           priority
-          sizes="(max-width: 768px) 100vw, 600px"
+          unoptimized
+          sizes="(max-width: 768px) 100vw, 480px"
           className={`${styles.image} ${
             direction === 'next' ? styles.slideLeft : styles.slideRight
           }`}
@@ -67,18 +65,19 @@ const Gallery = ({ id, size }) => {
       </div>
 
       <div className={styles.imagesRow}>
-        {images.map((img, index) => (
+        {list.map((img, index) => (
           <div
-            key={img}
+            key={`${img}-${index}`}
             className={selectedIndex === index ? styles.selectedSmallImage : styles.smallImage}
             onClick={() => !animating && setSelectedIndex(index)}
           >
             <Image
               src={img}
-              alt="thumbnail"
+              alt=""
               width={80}
               height={80}
               loading="lazy"
+              unoptimized
               className={styles.thumbImg}
             />
           </div>

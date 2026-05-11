@@ -1,22 +1,17 @@
-/* зелена палітра сайту */
-:root {
-  --pine: #1f6d3d;
-  --pine-600: #16502c;
-  --mint-bg: #f6fbf8; /* дуже світлий зелений фон */
-  --mint-brd: #e3f0ea; /* тонка межа */
-  --text: #111827;
-  --muted: #6b7280;
-}
-
 .wrap {
-  background: var(--mint-bg);
-  border: 1px solid var(--mint-brd);
-  border-radius: 16px;
-  padding: 16px;
+  --army-divider: #e5e0d6;
+  --army-ink: #1a1814;
+  --army-icon: #5a4f3d;
+  --army-subtext: #3f3a33;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   margin-top: 24px;
+  box-shadow: none;
 }
 
-/* одна колонка на мобайлі, дві на планшеті */
 .list {
   list-style: none;
   margin: 0;
@@ -25,6 +20,7 @@
   grid-template-columns: 1fr;
   gap: 12px;
 }
+
 @media (min-width: 720px) {
   .list {
     grid-template-columns: 1fr 1fr;
@@ -35,16 +31,17 @@
   display: flex;
   gap: 12px;
   padding: 12px 0;
-  border-top: 1px solid var(--mint-brd);
+  border-top: 1px solid var(--army-divider);
 }
+
 .item:first-child {
   border-top: none;
 }
 
 .icon {
-  color: var(--pine);
-  background: rgba(31, 109, 61, 0.08);
-  border: 1px solid rgba(31, 109, 61, 0.18);
+  color: var(--army-icon);
+  background: transparent;
+  border: none;
   width: 44px;
   height: 44px;
   min-width: 44px;
@@ -56,20 +53,22 @@
 .text {
   flex: 1;
 }
+
 .title {
-  color: var(--text);
+  color: var(--army-ink);
   font-weight: 800;
   font-size: 20px;
   line-height: 1.15;
   margin-bottom: 4px;
 }
+
 .line {
-  color: var(--muted);
+  color: var(--army-subtext);
   font-size: 15px;
-  line-height: 1.35;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-/* утиліта для скрінрідерів */
 .sr-only {
   position: absolute;
   width: 1px;

@@ -1,47 +1,89 @@
 'use client';
 import { Gallery } from '@/components/Gallery/Gallery';
 import { Sizes } from '@/components/Sizes/Sizes';
-import { trees } from '@/data/trees';
+import { Colors } from '@/components/Colors/Colors';
+import { products, mediaUrls } from '@/data/products';
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { Header } from '@/components/Header/Header';
 import { ProductDetails } from '@/components/ProductDetails/ProductDetails';
 import Footer from '@/components/Footer/Footer';
-import { SnowAnimation } from '@/components/SnowAnimation/SnowAnimation';
+
+function ProductView({ productData }) {
+  const [size, setSize] = useState(productData.sizes[0]);
+  const [color, setColor] = useState(productData.colors[0].id);
+  const [galleryImages, setGalleryImages] = useState([]);
+
+  const colorLabel = productData.colors.find((c) => c.id === color)?.label ?? color;
+
+  useEffect(() => {
+    const slots = productData.mediaByColor?.[color];
+    const fallback = slots?.length ? mediaUrls(productData.id, color, slots) : [];
+    setGalleryImages(fallback);
+
+    let cancelled = false;
+    const url = `/api/product-media/${encodeURIComponent(productData.id)}/${encodeURIComponent(color)}`;
+
+    fetch(url)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((data) => {
+        if (cancelled) return;
+        if (Array.isArray(data.urls) && data.urls.length > 0) {
+          setGalleryImages(data.urls);
+        }
+      })
+      .catch(() => {});
+
+    return () => {
+      cancelled = true;
+    };
+  }, [productData.id, color, productData]);
+
+  return (
+    <>
+      <Header />
+      <div className={styles.page}>
+        <Gallery images={galleryImages} alt={productData.name} />
+        <Colors colors={productData.colors} color={color} setColor={setColor} />
+        <Sizes sizes={productData.sizes} setSize={setSize} size={size} />
+        <ProductDetails
+          name={productData.name}
+          price={productData.price}
+          compareAtMore={productData.compareAtMore}
+          colorLabel={colorLabel}
+          size={size}
+          specDetails={productData.specDetails}
+          description={productData.description}
+          advantages={productData.advantages}
+          advantagesIntro={productData.advantagesIntro}
+        />
+      </div>
+      <Footer />
+    </>
+  );
+}
 
 export default function ProductContent() {
   const sp = useSearchParams();
   const id = sp.get('id');
-  const productData = trees.find((it) => it.id == id);
+  const productData = products.find((it) => it.id === id);
 
   if (!productData) {
     return (
       <>
         <Header />
         <div className={styles.page}>
-          <p>Product not found</p>
+          <p>Товар не знайдено</p>
         </div>
         <Footer />
       </>
     );
   }
 
-  const [size, setSize] = useState('2.1');
-  const sizes = productData.prices.map((it) => it.size);
-  const productDetails = productData.prices.find((it) => it.size == size);
-
   return (
     <Suspense>
-      <>
-        <Header />
-        <div className={styles.page}>
-          <Gallery id={productData.id} size={size} />
-          <Sizes sizes={sizes} setSize={setSize} size={size} />
-          <ProductDetails data={{ ...productDetails, name: productData.name }} size={size} />
-        </div>
-        <Footer />
-      </>
+      <ProductView key={productData.id} productData={productData} />
     </Suspense>
   );
 }

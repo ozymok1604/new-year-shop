@@ -88,7 +88,7 @@ const NovaPostSearch = ({ apiKey, onSelectDivision }) => {
   return (
     <div className={styles.block}>
       <p className={styles.note}>
-        📦 Оберіть <b>вантажне відділення</b>. Відділення до 30 кг і поштомати сірі.
+        📦 Оберіть відділення «Нова Пошта». Поштомати недоступні для вибору (обмеження габаритів).
       </p>
 
       <label>Населений пункт:</label>
@@ -132,8 +132,8 @@ const NovaPostSearch = ({ apiKey, onSelectDivision }) => {
           {!loading && divisions.length > 0 && (
             <div className={styles.dropdown}>
               {filteredDivisions.map((d) => {
-                const isDisabled =
-                  d.divisionCategory === 'PostBranch' || d.divisionCategory === 'Postomat';
+                /* Відділення до 30 кг (PostBranch) — доступні; поштомати — ні */
+                const isDisabled = d.divisionCategory === 'Postomat';
 
                 return (
                   <div

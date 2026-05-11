@@ -1,33 +1,42 @@
 'use client';
 
-import { InstagramLogoIcon, PhoneCallIcon, ArrowDownIcon } from '@phosphor-icons/react';
+import { TiktokLogoIcon, PhoneCallIcon } from '@phosphor-icons/react';
 import styles from './styles.module.scss';
 import Link from 'next/link';
-import { ArrowLeftIcon } from '@phosphor-icons/react/dist/ssr';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-const Header = ({ scrollDown, scrollToSection }) => {
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  
+
   return (
-    <div className={styles.header} style={{ backgroundColor: scrollDown ? '#ba0207' : '#0f3f24' }}>
-      {scrollDown ? (
-        <ArrowDownIcon onClick={scrollToSection} color="white" size={30} />
-      ) : (
-        <Link href="/">
-          <ArrowLeftIcon color="white" size={30} />
-        </Link>
-      )}
+    <div className={`${styles.header}${scrolled ? ` ${styles.headerScrolled}` : ''}`}>
+      <Link href="/" className={styles.logoLink} aria-label="На головну">
+        <Image
+          src="/logo.png"
+          alt=""
+          width={400}
+          height={200}
+          className={styles.logo}
+          priority
+          sizes="(max-width: 480px) 200px, 240px"
+        />
+      </Link>
 
-      <h2 className={styles.headerTitle}>new_year_shop.ua</h2>
+     
       <div className={styles.row}>
         <Link
           className={styles.link}
-          href="https://instagram.com/new_year_shop.ua"
+          href="https://www.tiktok.com/@fastdeal.ua"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Instagram new_year_shop.ua"
+          aria-label="TikTok FastDeal"
         >
-          <InstagramLogoIcon color="white" size={30} />
+          <TiktokLogoIcon color="white" size={30} />
         </Link>
-        <a href="tel:+380967070209">
+        <a href="tel:+380998073556">
           <PhoneCallIcon color="white" size={30} />
         </a>
       </div>

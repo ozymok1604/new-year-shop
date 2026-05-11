@@ -1,17 +1,12 @@
-/* зелена тема футера */
-:root {
-  --pine-900: #0f3f24;
-  --pine-700: #16502c;
-  --mint-brd: #2b6a43;
-  --text-light: #f9fafb;
-  --text-dim: #d1d5db;
-}
-
+/* Той самий тон, що хедер (#383926), без зеленої теми */
 .footer {
   margin-top: 24px;
-  background: var(--pine-900);
-  color: var(--text-light);
+  background: #383926;
+  color: #f9fafb;
   padding: 28px 16px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .inner {
@@ -38,15 +33,41 @@
   font-weight: 800;
   font-size: 18px;
   letter-spacing: 0.2px;
+  color: #fff;
 }
+
 .tagline {
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.72);
   margin: 0;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.footerNav {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e8ecf0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+}
+
+.footerNav:hover {
+  color: #fff;
+  text-decoration-color: rgba(255, 255, 255, 0.6);
 }
 
 .blockTitle {
   font-weight: 800;
   margin-bottom: 4px;
+  color: #fff;
 }
 
 .link,
@@ -54,12 +75,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-light);
+  color: #f9fafb;
   text-decoration: none;
   padding: 4px 0;
   border-radius: 8px;
   transition: background 0.15s ease, color 0.15s ease;
 }
+
 .link:hover,
 .row:hover {
   background: rgba(255, 255, 255, 0.06);
@@ -69,13 +91,14 @@
   max-width: 1100px;
   margin: 16px auto 0;
   padding-top: 12px;
-  border-top: 1px solid var(--mint-brd);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   gap: 6px;
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 13px;
 }
+
 @media (min-width: 760px) {
   .bottom {
     flex-direction: row;

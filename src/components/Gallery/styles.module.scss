@@ -8,20 +8,23 @@
 
 .imageWrap {
   width: 100%;
-  max-width: 600px;
-  height: 600px; /* або 300px, якщо хочеш нижчу */
-  position: relative; /* обов’язково для Image fill */
+  max-width: min(100%, 480px);
+  aspect-ratio: 1 / 1;
+  position: relative;
   overflow: hidden;
   border-radius: 14px;
-  background: #f7fff7;
-  box-shadow: 0 0 12px rgba(0, 50, 0, 0.05);
+  background: #e9ecef;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .image {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   user-select: none;
   touch-action: pan-y;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 .thumbImg {
@@ -91,14 +94,19 @@
   }
 }
 
-/* Нижній ряд з превʼюшками */
+/* Превʼю: кілька рядів, якщо фото багато */
 .imagesRow {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  row-gap: 12px;
   margin-top: 14px;
-
   justify-content: center;
-  padding-bottom: 4px;
+  align-content: flex-start;
+  width: 100%;
+  max-width: min(100%, 480px);
+  padding: 0 4px 4px;
+  box-sizing: border-box;
   scroll-behavior: smooth;
   margin-bottom: 16px;
 }

@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Phone, InstagramLogo, Clock } from '@phosphor-icons/react';
+import { Phone, TiktokLogo, Clock } from '@phosphor-icons/react';
 import styles from './styles.module.scss';
 
 export default function Footer() {
@@ -11,27 +11,35 @@ export default function Footer() {
       <div className={styles.inner}>
         {/* Бренд/опис */}
         <div className={styles.col}>
-          <div className={styles.brand}>new_year_shop.ua</div>
-          <p className={styles.tagline}>Штучні ялинки преміум класу. Доставка по Україні.</p>
+          <div className={styles.brand}>FastDeal</div>
+          <p className={styles.tagline}>Тактичне взуття. Доставка по Україні.</p>
+          <div className={styles.footerLinks}>
+            <Link className={styles.footerNav} href="/dostavka-oplata">
+              Доставка та оплата
+            </Link>
+            <Link className={styles.footerNav} href="/povernennya-ta-obmin">
+              Повернення та обмін
+            </Link>
+          </div>
         </div>
 
         {/* Контакти */}
         <div className={styles.col}>
           <div className={styles.blockTitle}>Контакти</div>
-          <a className={styles.link} href="tel:+380967070209">
+          <a className={styles.link} href="tel:+380998073556">
             <Phone size={18} weight="bold" />
-            <span>+38 (096) 707-02-09</span>
+            <span>+38 (099) 807-35-56</span>
           </a>
 
           <Link
             className={styles.link}
-            href="https://instagram.com/new_year_shop.ua"
+            href="https://www.tiktok.com/@fastdeal.ua"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram new_year_shop.ua"
+            aria-label="TikTok FastDeal @fastdeal.ua"
           >
-            <InstagramLogo size={18} weight="bold" />
-            <span>@new_year_shop.ua</span>
+            <TiktokLogo size={18} weight="bold" />
+            <span>@fastdeal.ua</span>
           </Link>
         </div>
 
@@ -50,7 +58,7 @@ export default function Footer() {
 
       {/* лінія + копірайт */}
       <div className={styles.bottom}>
-        <span>© {year} new_year_shop.ua. Усі права захищено.</span>
+        <span>© {year} FastDeal. Усі права захищено.</span>
       </div>
     </footer>
   );

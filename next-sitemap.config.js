@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://new-year-shop.vercel.app',
+  siteUrl: 'https://tactic.vercel.app',
   generateRobotsTxt: true,
 };
